@@ -4,6 +4,7 @@ import { ChatMessage } from './components/ChatMessage';
 import { ConsentBanner } from './components/ConsentBanner';
 import { supabase } from './lib/supabase';
 import { queryDocuments } from './lib/documentProcessor';
+import { LoadingDots } from './components/LoadingDots';
 import type { Message } from './types';
 
 const systemPrompt = `You are a sports science expert analyzing research papers. 
@@ -177,8 +178,17 @@ function App() {
         <div className="bg-white rounded-lg shadow-md h-[calc(100vh-8rem)] flex flex-col">
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((message) => (
-              <ChatMessage key={message.id} message={message} />
+              <ChatMessage 
+                key={message.id} 
+                message={message} 
+                isLoading={false} 
+              />
             ))}
+            {isLoading && (
+              <div className="flex justify-start">
+                <LoadingDots />
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
 
