@@ -18,7 +18,7 @@ export async function queryFemaleAthleteDocuments(query: string) {
     });
 
     // Get Pinecone index
-    const index = pc.index("female-athlete-index");
+    const index = pc.index(import.meta.env.VITE_PINECONE_FEMALE_ATHLETE_INDEX!);
 
     // Query the index
     const queryResponse = await index.query({

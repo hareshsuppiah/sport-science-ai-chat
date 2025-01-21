@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,9 +8,11 @@ export default defineConfig({
   server: {
     watch: {
       usePolling: true,
-    },
+    }
   },
-  optimizeDeps: {
-    include: ['./src/lib/test_connection.ts']
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src')
+    }
   }
 });

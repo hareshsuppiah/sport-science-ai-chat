@@ -24,3 +24,9 @@ export interface Database {
     };
   };
 }
+
+export interface SearchResult {
+  text: string;
+  source: string;
+  score: number;
+}
