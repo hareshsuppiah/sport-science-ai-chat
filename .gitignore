@@ -46,6 +46,7 @@ venv/
 
 # PDF files and research folders
 *.pdf
+!1736171_Boukhris,O_2024.pdf
 /female-athlete-research
 /female-athlete-research-processed
 /sleep-research
