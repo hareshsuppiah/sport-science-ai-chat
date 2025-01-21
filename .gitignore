@@ -4,22 +4,23 @@
 !.env.example
 
 # Dependencies
-node_modules
-.pnp
+/node_modules
+/.pnp
 .pnp.js
 
 # Testing
-coverage
+/coverage
 
 # Production
-dist
-build
+/build
+/dist
 
 # Misc
 .DS_Store
 *.pem
 .vscode
 .idea
+.bolt/
 
 # Debug
 npm-debug.log*
@@ -35,3 +36,17 @@ next-env.d.ts
 
 # Vite
 .vite
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# PDF files and research folders
+*.pdf
+/female-athlete-research
+/female-athlete-research-processed
+/sleep-research
+/sleep-research-processed

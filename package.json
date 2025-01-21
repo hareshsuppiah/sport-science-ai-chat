@@ -10,11 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pinecone-database/pinecone": "^3.0.2",
+    "@langchain/openai": "^0.3.17",
+    "@pinecone-database/pinecone": "^3.0.3",
+    "@radix-ui/react-dialog": "^1.1.4",
+    "@radix-ui/react-scroll-area": "^1.2.2",
+    "@radix-ui/react-tabs": "^1.1.2",
     "@supabase/supabase-js": "^2.39.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.18.0",
     "lucide-react": "^0.320.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

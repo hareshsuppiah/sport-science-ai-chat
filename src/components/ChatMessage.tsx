@@ -9,21 +9,29 @@ interface ChatMessageProps {
 
 export const ChatMessage: React.FC<ChatMessageProps> = ({ message, isLoading }) => {
   const isUser = message.role === 'user';
+  const uniqueSources = message.sources ? [...new Set(message.sources)] : [];
 
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} items-end space-x-2`}>
-      <div className={`max-w-[80%] rounded-lg px-4 py-2 ${
-        isUser ? 'bg-blue-500 text-white' : 'bg-gray-100'
+    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
+      <div className={`max-w-[85%] rounded-lg px-4 py-3 ${
+        isUser 
+          ? 'bg-black text-white' 
+          : 'bg-gray-50 border border-gray-100'
       }`}>
-        {message.content}
-        {!isUser && message.sources && (
-          <div className="mt-2 text-xs text-gray-500">
-            Source: {message.sources.join(', ')}
+        <div className={`text-sm ${isUser ? 'text-gray-200' : 'text-gray-500'} mb-1`}>
+          {isUser ? 'You' : 'Assistant'}
+        </div>
+        <div className={`${isUser ? 'text-white' : 'text-gray-900'}`}>
+          {message.content}
+        </div>
+        {!isUser && uniqueSources.length > 0 && (
+          <div className="mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
+            Sources: {uniqueSources.join(', ')}
           </div>
         )}
       </div>
       {!isUser && isLoading && (
-        <div className="mb-2">
+        <div className="ml-2">
           <LoadingDots />
         </div>
       )}
